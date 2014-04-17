@@ -1,10 +1,20 @@
 <html>
 <head>
 <title>Wel come to my new app</title>
+<script src="jquery-1.11.0.min.js"></script>
 </head>
-<body>
-<h1>My First Project</h1>
-<input type="text"></input>
-<button type="submit">Submit</button>
+<body style="background-color:orange">
+<h1 style="color:green">My First Project</h1>
+<input id="txt" placeholder="type in the text" type="text"></input>
+<button id="sub" onclick="show(this)" type="submit">Submit</button>
 </body>
+<script>
+$(document).ready(function(){
+  $("#sub").click(function(e){
+	var value = $("#txt").val();
+	alert(value);
+  })
+
+});
+</script>
 </html>
