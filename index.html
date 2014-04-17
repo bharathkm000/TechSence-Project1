@@ -1,18 +1,63 @@
 <html>
 <head>
-<title>Wel come to my new app</title>
+<title>Try Your Luck</title>
 <script src="jquery-1.11.0.min.js"></script>
 </head>
-<body style="background-color:orange">
-<h1 style="color:green">My First Project</h1>
-<input id="txt" placeholder="type in the text" type="text"></input>
-<button id="sub" onclick="show(this)" type="submit">Submit</button>
+<body style="background-color:orange;text-align:center;">
+<h1 style="color:green;">Try Your Luck</h1>
+<input id="txt" placeholder="Type in your name" type="text"></input>
+
+<input id="d1" placeholder="1 to 100"  type="number"></input>
+<input id="d2" placeholder="1 to 100"  type="number"></input>
+<input id="d3" placeholder="1 to 100" type="number"></input>
+
+
+<p id="name"></p>
+<p id="generatedNum"></p>
+<button id="sub" type="submit">Submit</button>
+
+
 </body>
 <script>
 $(document).ready(function(){
   $("#sub").click(function(e){
-	var value = $("#txt").val();
-	alert(value);
+  var value = $("#txt").val();
+  $("#name").html("Welcome "+value);
+	var won = false;
+	var randomNum1 = Math.floor((Math.random()*100)+1); 
+	var randomNum2 = Math.floor((Math.random()*100)+1); 
+	var randomNum3 = Math.floor((Math.random()*100)+1);
+	var b = [ randomNum1, randomNum2,randomNum3 ];
+	
+	var text1 = parseInt($("#d1").val());
+	var text2 = parseInt($("#d2").val());
+	var text3 = parseInt($("#d3").val());
+
+	
+
+	var a = [ text1, text2, text3 ];
+		
+	$("#generatedNum").html("Your Lucky Numbers: " + randomNum1 +", "+randomNum2+", "+randomNum3);
+
+	a.forEach(function(el) {
+		
+		if(b.indexOf(el) >= 0) {
+			
+			won = true;
+			
+			return false;
+		}
+		else {
+			
+			
+		}
+	});
+	if(won){
+		  $("#name").html("Congrates "+value +" you won");
+	}else{
+		  $("#name").html("Sorry "+value+ " you lost");
+	}
+	
   })
 
 });
